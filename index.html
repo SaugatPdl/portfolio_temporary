@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Er. Saugat Paudel - Personal Website</title>
@@ -14,203 +15,161 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
     <style>
-      /* Smooth transitions for theme switching */
-      * {
-        transition: background 0.3s ease, color 0.3s ease;
-      }
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #000;
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-      body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background: #f5f7fa;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 20px;
-      }
+        /* Light mode style */
+        body.light-mode {
+            background: #f5f7fa;
+            color: #333;
+        }
 
-      /* DARK MODE */
-      body.dark-mode {
-        background: #000;
-        color: #f5f5f5;
-      }
+        header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            max-width: 900px;
+            width: 100%;
+        }
 
-      header {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 30px;
-        max-width: 900px;
-        width: 100%;
-      }
+        header img {
+            width: 200px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
 
-      header img {
-        width: 200px;
-        border-radius: 16px;
-        object-fit: cover;
-      }
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            color: #ecc46f;
+        }
 
-      .header-text h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin: 0;
-        color: #ecc46f;
-      }
+        .header-text h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 5px 0 15px;
+        }
 
-      .header-text h2 {
-        font-size: 1.2rem;
-        font-weight: 500;
-        margin: 5px 0 15px;
-      }
+        .about-me {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 650px;
+        }
 
-      .about-me {
-        font-size: 1rem;
-        line-height: 1.6;
-        max-width: 650px;
-      }
+        .container {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
 
-      .container {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 40px;
-        border-radius: 16px;
-        text-align: center;
-        max-width: 650px;
-        width: 100%;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      }
+        body.light-mode .container {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
 
-      body.dark-mode .container {
-        background: rgba(20, 20, 20, 0.95);
-      }
+        h1 {
+            margin: 0 0 15px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
 
-      h1 {
-        margin: 0 0 15px;
-        font-size: 2rem;
-        font-weight: 700;
-      }
+        p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
 
-      p {
-        margin-bottom: 25px;
-        font-size: 1.1rem;
-      }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-      .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
+        .social-icons a {
+            font-size: 1.8rem;
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.2s, color 0.2s;
+        }
 
-      .social-icons a {
-        font-size: 1.8rem;
-        color: inherit;
-        text-decoration: none;
-        transition: transform 0.2s, color 0.2s;
-      }
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #ecc46f;
+        }
 
-      .social-icons a:hover {
-        transform: scale(1.2);
-        color: #ecc46f;
-      }
+        .toggle-btn {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            border: 2px solid #ecc46f;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #ecc46f;
+            font-size: 1.2rem;
+            background: none;
+        }
 
-      /* Theme Toggle Button */
-      .toggle-btn {
-        position: fixed;
-        top: 15px;
-        right: 20px;
-        border: 2px solid #ecc46f;
-        border-radius: 50%;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        color: #ecc46f;
-        font-size: 1.3rem;
-        background: none;
-      }
-
-      .toggle-btn:hover {
-        background: #ecc46f;
-        color: #000;
-      }
+        .toggle-btn:hover {
+            background: #ecc46f;
+            color: #000;
+        }
     </style>
-  </head>
+</head>
 
-  <!-- Default dark mode -->
-  <body class="dark-mode">
+<body>
 
-    <!-- THEME TOGGLE BUTTON -->
-    <button class="toggle-btn" onclick="toggleTheme()">
-      <i class="bi bi-sun-fill"></i>
+    <!-- Light Mode Toggle (starts in dark mode by default) -->
+    <button class="toggle-btn" onclick="document.body.classList.toggle('light-mode')">
+        <i class="bi bi-brightness-high-fill"></i>
     </button>
 
-    <!-- HEADER -->
     <header>
-      <img src="ProfilePhoto.png" alt="Er. Saugat Paudel" loading="lazy" />
-
-      <div class="header-text">
-        <h1>Er. Saugat Paudel</h1>
-        <h2>Geomatics Engineer • Digital Marketer • Voiceover Artist</h2>
-
-        <div class="about-me">
-          Passionate about merging technology, creativity, and communication.
-          With a background in Geomatics Engineering, I specialize in spatial
-          data, mapping, and geospatial solutions. Alongside, I bring expertise
-          as a Digital Marketer, helping brands grow strategically in the
-          digital landscape. My creative edge as a Voiceover Artist allows me to
-          deliver compelling narratives that connect with audiences.
+        <img src="ProfilePhoto.png" alt="Er. Saugat Paudel" loading="lazy" />
+        <div class="header-text">
+            <h1>Er. Saugat Paudel</h1>
+            <h2>Geomatics Engineer • Digital Marketer • Voiceover Artist</h2>
+            <div class="about-me">
+                Passionate about merging technology, creativity, and communication. With a background in Geomatics Engineering, I specialize in spatial data, mapping, and geospatial solutions. Alongside, I bring expertise as a Digital Marketer, helping brands grow strategically in the digital landscape. My creative edge as a Voiceover Artist allows me to deliver compelling narratives that connect with audiences.
+            </div>
         </div>
-      </div>
     </header>
 
-    <!-- MAIN CARD -->
     <div class="container">
-      <h1>🚧 Website Under Construction 🚧</h1>
-      <p>I’m working on building something exciting! Meanwhile, let’s stay connected.</p>
+        <h1>🚧 Website Under Construction 🚧</h1>
+        <p>I’m working on building something exciting! Meanwhile, let’s stay connected.</p>
 
-      <div class="social-icons">
-        <a href="https://www.facebook.com/saugat.poudel.754" target="_blank"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/saugatpdl_/" target="_blank"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/saugatpdl" target="_blank"><i class="bi bi-linkedin"></i></a>
-        <a href="https://www.tiktok.com/@saugatpdl_" target="_blank"><i class="bi bi-tiktok"></i></a>
-        <a href="https://wa.me/9779816691610" target="_blank"><i class="bi bi-whatsapp"></i></a>
-        <a href="https://www.youtube.com/@GeomaticsHub" target="_blank"><i class="bi bi-youtube"></i></a>
-        <a href="mailto:saugatpdlofficial@gmail.com"><i class="bi bi-envelope-fill"></i></a>
-      </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/saugat.poudel.754" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/saugatpdl_/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/saugatpdl" target="_blank"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.tiktok.com/@saugatpdl_" target="_blank"><i class="bi bi-tiktok"></i></a>
+            <a href="https://wa.me/9779816691610" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.youtube.com/@GeomaticsHub" target="_blank"><i class="bi bi-youtube"></i></a>
+            <a href="mailto:saugatpdlofficial@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+        </div>
     </div>
 
-    <!-- JAVASCRIPT FOR THEME TOGGLE + MEMORY -->
-    <script>
-      // Load saved theme
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedTheme = localStorage.getItem("theme");
+</body>
 
-        if (savedTheme === "light") {
-          document.body.classList.remove("dark-mode");
-          document.querySelector(".toggle-btn i").classList.replace("bi-sun-fill", "bi-moon-fill");
-        }
-      });
-
-      function toggleTheme() {
-        const body = document.body;
-        const icon = document.querySelector(".toggle-btn i");
-
-        body.classList.toggle("dark-mode");
-
-        if (body.classList.contains("dark-mode")) {
-          icon.classList.replace("bi-moon-fill", "bi-sun-fill");
-          localStorage.setItem("theme", "dark");
-        } else {
-          icon.classList.replace("bi-sun-fill", "bi-moon-fill");
-          localStorage.setItem("theme", "light");
-        }
-      }
-    </script>
-
-  </body>
 </html>
